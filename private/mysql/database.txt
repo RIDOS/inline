@@ -1,0 +1,19 @@
+USE inline_db;
+
+CREATE TABLE posts(
+	id INT NOT NULL,
+    user_id INT NOT NULL,
+    title VARCHAR(255),
+    body VARCHAR(255),
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE comments(
+	id INT NOT NULL,
+    postId INT NOT NULL,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    body VARCHAR(255),
+    PRIMARY KEY(id),
+    FOREIGN KEY(postId) REFERENCES posts(id)
+);
